@@ -43,7 +43,7 @@ function CartScreen(props) {
           </div>
             :
             cartItems.map(item =>
-              <li>
+              <li key={productId}>
                 <div className="cart-image">
                   <img src={item.image} alt="product" />
                 </div>
