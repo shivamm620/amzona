@@ -5,13 +5,6 @@ import config from './config';
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser';
 import userRoute from './routes/userRoutes'
-dotenv.config();
-const mongodbUrl = config.MONGODB_URL;
-mongoose.connect(mongodbUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
 const app = express();
 app.use(bodyParser.json());
 app.use('/api/users', userRoute)
