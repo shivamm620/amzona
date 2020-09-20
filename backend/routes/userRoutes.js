@@ -1,6 +1,5 @@
 import express from 'express';
 import bcrypt from 'bcryptjs'
-import bodyParser from 'body-parser'
 import db from '../db';
 
 
