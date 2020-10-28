@@ -1,4 +1,4 @@
-CREATE DATABASE amzona;
+CREATE DATABASE amazon;
 
 CREATE TABLE  users(
     id SERIAL PRIMARY KEY ,
