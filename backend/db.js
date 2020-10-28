@@ -6,7 +6,7 @@ const db = knex({
       host : '127.0.0.1',
       user : 'postgres',
       password: 'shivam',
-      database : 'amzona',
+      database : 'amazon',
 
     }
   });
