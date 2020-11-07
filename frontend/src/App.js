@@ -10,6 +10,8 @@ import CreateProduct from './screen/ProductsScreen';
 import { useSelector } from 'react-redux';
 import RegisterScreen from './screen/RegisterScreen';
 function App() {
+    const cart = useSelector((state) => state.cart);
+    const { cartItems } = cart;
     const userSignin = useSelector(state => state.userSignin);
     const { userInfo } = userSignin;
   
@@ -30,7 +32,11 @@ function App() {
                 <Link to='/'>Amazona</Link>
             </div>
             <div className='header-links'>
-                <a href='cart.html'>Cart</a>
+                <Link to="/cart">Cart
+                {cartItems.length > 0 && (
+                <span className="badge">{cartItems.length}</span>
+              )}
+                </Link>
                 {
               userInfo ? <Link to="/profile">{userInfo.name}</Link> :
                 <Link to="/signin">Sign In</Link>

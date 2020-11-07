@@ -1,8 +1,10 @@
 import React from 'react';
 
 
-function CreateProduct (){
+function CreateProduct (props){
+   return(
     <h1>CreateProduct</h1>
+   )
 }
 
 
