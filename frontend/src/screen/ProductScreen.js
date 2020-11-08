@@ -9,14 +9,14 @@ function ProductScreen (props) {
     const {product, loading,error} = productDetails
     const dispatch = useDispatch()
     useEffect (()=>{
-        dispatch(detailsProduct(props.match.params.id))
+        dispatch(detailsProduct(props.match.params.name))
         return() =>{
             //
         };
 
     }, [])
     const handleAddToCart = () => {
-        props.history.push('/cart/' + props.match.params.id + '?qty=' + qty);
+        props.history.push('/cart/' + props.match.params.name + '?qty=' + qty);
       };
     return <div>
         <div className='back-to-result'>

@@ -81,7 +81,8 @@ function CartScreen(props) {
         :
          $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
       </h3>
-      <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
+      <button onClick={checkoutHandler} 
+      className="button primary full-width" disabled={cartItems.length === 0}>
         Proceed to Checkout
       </button>
 
