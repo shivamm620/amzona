@@ -5,9 +5,9 @@ import userRoute from './routes/userRoutes'
 const app = express();
 app.use(bodyParser.json());
 app.use('/api/users', userRoute)
-app.get('/api/products/:id',(req,res)=>{
-    const productId = req.params.id;
-    const product = data.products.find(x=> x._id === productId);
+app.get('/api/products/:name',(req,res)=>{
+    const productId = req.params.name;
+    const product = data.products.find(x=> x.name === productId);
     if(product)
         res.send(product);
     else
