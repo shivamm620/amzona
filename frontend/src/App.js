@@ -7,20 +7,24 @@ import ProductScreen from './screen/ProductScreen';
 import CartScreen from './screen/CartScreen';
 import SigninScreen from './screen/SigninScreen';
 import CreateProduct from './screen/ProductsScreen';
-import { useSelector } from 'react-redux';
+import { useSelector ,useDispatch} from 'react-redux';
 import RegisterScreen from './screen/RegisterScreen';
+import { signout } from './action/userActions';
 function App() {
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
     const userSignin = useSelector(state => state.userSignin);
     const { userInfo } = userSignin;
-  
+    const dispatch = useDispatch();
     const openMenu =()=>{
         document.querySelector('.sidebar').classList.add('open');
     }
     const closeMenu =() =>{
         document.querySelector('.sidebar').classList.remove('open');
     }
+    const signoutHandler = () => {
+        dispatch(signout());
+      };
   return (
       <BrowserRouter>
     <div className='gird-container'>
@@ -38,7 +42,18 @@ function App() {
               )}
                 </Link>
                 {
-              userInfo ? <Link to="/profile">{userInfo.name}</Link> :
+              userInfo ?
+              <div className='dropdown'>
+               <Link to="/profile">{userInfo.name}  <i className="fa fa-caret-down"></i>{' '} </Link> 
+               <ul className="dropdown-content">
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+               </div>
+               :
                 <Link to="/signin">Sign In</Link>
             }
             </div>
