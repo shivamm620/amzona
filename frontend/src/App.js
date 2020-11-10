@@ -10,6 +10,7 @@ import CreateProduct from './screen/ProductsScreen';
 import { useSelector ,useDispatch} from 'react-redux';
 import RegisterScreen from './screen/RegisterScreen';
 import { signout } from './action/userActions';
+import ShippingAddress from './screen/ShippingAddress';
 function App() {
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
@@ -78,6 +79,7 @@ function App() {
                    <Route path='/product/create' component={CreateProduct}/>
                    <Route path="/signin" component={SigninScreen} />
                    <Route path="/register" component={RegisterScreen} />
+                   <Route path='/shipping' component={ShippingAddress}/>
                    <Route path="/cart/:id?" component={CartScreen} />
                    <Route path='/' exact={true} component={HomeScreen} />
                    </div>
