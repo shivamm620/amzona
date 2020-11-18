@@ -311,6 +311,15 @@ th {
 tbody > tr:nth-child(odd) {
   background-color: #f0f0f0;
 }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.row.center {
+  justify-content: center;
+}
 /* Dropdown */
 .dropdown {
   display: inline-block;
@@ -339,7 +348,14 @@ tbody > tr:nth-child(odd) {
   font-size: 1.4rem;
   margin-left: 0.2rem;
 }
-
+/* Rating */
+.rating span:last-child {
+  color: #404040;
+}
+.rating span {
+  color: #f0c040;
+  margin: 0.1rem;
+}
 /* Checkout */
 
 
