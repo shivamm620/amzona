@@ -77,9 +77,9 @@ function App() {
                    <div className='content'>
                    <Route path='/product/:name'  component={ProductScreen} />
                    <Route path='/product/create' component={CreateProduct}/>
+                   <Route path="/shipping" component={ShippingAddress}></Route>
                    <Route path="/signin" component={SigninScreen} />
                    <Route path="/register" component={RegisterScreen} />
-                   <Route path='/shipping' component={ShippingAddress}/>
                    <Route path="/cart/:id?" component={CartScreen} />
                    <Route path='/' exact={true} component={HomeScreen} />
                    </div>

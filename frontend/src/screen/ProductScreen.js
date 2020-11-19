@@ -2,6 +2,8 @@ import React,{useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { detailsProduct } from '../action/productAction';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 function ProductScreen (props) {
     const [qty, setQty] = useState(1);
@@ -22,8 +24,8 @@ function ProductScreen (props) {
         <div className='back-to-result'>
             <Link to='/'> Back to result</Link>
         </div>
-        {loading ? <div> loading...</div>:
-        error ? <div>{error}</div>:
+        {loading ? <LoadingBox></LoadingBox>:
+        error ?<MessageBox variant="danger">{error}</MessageBox>:
         (
             <div className='details'>
         <div className='details-image'>
