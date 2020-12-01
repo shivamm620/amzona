@@ -1,6 +1,6 @@
 
 import Cookie from 'js-cookie';
-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstant";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, SAVE_SHIPPING_ADDRESS } from "../constants/cartConstant";
 
 const { default: Axios } = require("axios")
 
@@ -29,4 +29,9 @@ const removeFromCart = (productId) => (dispatch,getState) => {
   const { cart: { cartItems } } = getState();
   Cookie.set("cartItems", JSON.stringify(cartItems));
 }
-export {addToCart,removeFromCart}
+
+const saveShippingAddress = (data) =>(dispatch) =>{
+  dispatch({type:SAVE_SHIPPING_ADDRESS,payload:data})
+  Cookie.set('shippingAddress',JSON.stringify(data))
+}
+export {addToCart,removeFromCart,saveShippingAddress}
