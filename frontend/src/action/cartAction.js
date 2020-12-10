@@ -30,8 +30,8 @@ const removeFromCart = (productId) => (dispatch,getState) => {
   Cookie.set("cartItems", JSON.stringify(cartItems));
 }
 
-const saveShippingAddress = (data) =>(dispatch) =>{
-  dispatch({type:SAVE_SHIPPING_ADDRESS,payload:data})
-  Cookie.set('shippingAddress',JSON.stringify(data))
-}
+const saveShippingAddress = (data) => (dispatch) => {
+  dispatch({ type: SAVE_SHIPPING_ADDRESS, payload: data });
+  localStorage.setItem('shippingAddress', JSON.stringify(data));
+};
 export {addToCart,removeFromCart,saveShippingAddress}

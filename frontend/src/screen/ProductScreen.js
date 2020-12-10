@@ -7,18 +7,19 @@ import MessageBox from '../components/MessageBox';
 
 function ProductScreen (props) {
     const [qty, setQty] = useState(1);
+    const productId = props.match.params.id;
     const productDetails = useSelector(state=>state.productDetails);
     const {product, loading,error} = productDetails
     const dispatch = useDispatch()
     useEffect (()=>{
-        dispatch(detailsProduct(props.match.params.name))
+        dispatch(detailsProduct(productId))
         return() =>{
             //
         };
 
-    }, [])
+    }, [dispatch, productId])
     const handleAddToCart = () => {
-        props.history.push('/cart/' + props.match.params.name + '?qty=' + qty);
+        props.history.push(`/cart/${productId}?qty=${qty}`);
       };
     return <div>
         <div className='back-to-result'>

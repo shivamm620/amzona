@@ -75,7 +75,7 @@ function App() {
         </aside>           
       <main className='main'>
                    <div className='content'>
-                   <Route path='/product/:name'  component={ProductScreen} />
+                   <Route path='/product/:id'  component={ProductScreen} />
                    <Route path='/product/create' component={CreateProduct}/>
                    <Route path="/shipping" component={ShippingAddress}></Route>
                    <Route path="/signin" component={SigninScreen} />

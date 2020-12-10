@@ -19,7 +19,7 @@ function CartScreen(props) {
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
-  }, []);
+  }, [dispatch, productId, qty]);
 
   const checkoutHandler = () => {
     props.history.push('/signin?redirect=shipping');
@@ -43,7 +43,7 @@ function CartScreen(props) {
           </div>
             :
             cartItems.map(item =>
-              <li key={productId}>
+              <li key={item.product}>
                 <div className="cart-image">
                   <img src={item.image} alt="product" />
                 </div>
