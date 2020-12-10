@@ -4,14 +4,12 @@ import thunk from 'redux-thunk'
 import Cookie from 'js-cookie';
 import cartReducer from './reducer/cartReducers';
 import { userSigninReducer,userRegisterReducer } from './reducer/userReducers';
-import { json } from 'body-parser';
 const cartItems = Cookie.getJSON("cartItems") || [];
 const userInfo = Cookie.getJSON("userInfo") || null;
-
-const initialState = { cart: { cartItems ,
-    shippingAddress:Cookie.getJSON('shippingAddress')?
-    JSON.parse(Cookie.getJSON('shippingAddress'))
-    : {}
+const initialState = { cart: { cartItems , 
+    shippingAddress: localStorage.getItem('shippingAddress')
+    ? JSON.parse(localStorage.getItem('shippingAddress'))
+    : {},
 }, userSignin: { userInfo }  };
 const reducer = combineReducers({
     productList: productListReducer,
